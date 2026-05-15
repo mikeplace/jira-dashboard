@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Performance Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Team Performance Dashboard</h1>
+        <p class="subtitle">{{ project_key }} | Last updated: <span id="lastUpdated">Loading...</span></p>
+    </header>
+
+    <main>
+        <!-- AI Insights Section -->
+        <section class="ai-insights-section">
+            <div class="ai-insights-container">
+                <div class="ai-header">
+                    <h2>Claude's Assessment</h2>
+                    <button id="refreshAiBtn" class="btn-refresh" onclick="refreshAiInsights()">
+                        Refresh Analysis
+                    </button>
+                </div>
+                <div id="aiInsights" class="ai-content">
+                    <p class="loading">Loading AI insights...</p>
+                </div>
+                <p class="ai-timestamp">Last analysis: <span id="aiTimestamp">-</span></p>
+            </div>
+        </section>
+
+        <!-- Summary Cards -->
+        <section class="cards">
+            <div class="card">
+                <h3>This Week</h3>
+                <div class="metric" id="velocityThisWeek">-</div>
+                <p>tickets completed</p>
+            </div>
+            <div class="card">
+                <h3>Last Week</h3>
+                <div class="metric" id="velocityLastWeek">-</div>
+                <p>tickets completed</p>
+            </div>
+            <div class="card">
+                <h3>Trend</h3>
+                <div class="metric" id="velocityTrend">-</div>
+                <p>week over week</p>
+            </div>
+            <div class="card alert">
+                <h3>Stale Tickets</h3>
+                <div class="metric" id="staleCount">-</div>
+                <p>need attention</p>
+            </div>
+        </section>
+
+        <!-- Charts Row -->
+        <section class="charts-row">
+            <div class="chart-container">
+                <h2>Reopen Rate by Team Member (Last 30 Days)</h2>
+                <canvas id="reopenChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Average Time in Status (Hours)</h2>
+                <canvas id="timeInStatusChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Tables Row -->
+        <section class="tables-row">
+            <div class="table-container">
+                <h2>Stale Tickets</h2>
+                <table id="staleTable">
+                    <thead>
+                        <tr>
+                            <th>Ticket</th>
+                            <th>Summary</th>
+                            <th>Assignee</th>
+                            <th>Status</th>
+                            <th>Days Stale</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Reopen Details -->
+        <section class="tables-row">
+            <div class="table-container">
+                <h2>Reopen Statistics</h2>
+                <table id="reopenTable">
+                    <thead>
+                        <tr>
+                            <th>Team Member</th>
+                            <th>Total Tickets</th>
+                            <th>Reopened</th>
+                            <th>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data sourced from <a href="{{ jira_url }}" target="_blank">Jira</a>
+        {% if github_enabled %} and GitHub{% endif %}</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='charts.js') }}"></script>
+</body>
+</html>

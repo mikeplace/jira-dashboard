@@ -1,0 +1,28 @@
+# Environment and secrets
+.env
+*.db
+
+# Logs
+logs/
+*.log
+
+# Temp/generated files
+latest_ai_insights.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
