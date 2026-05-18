@@ -466,6 +466,8 @@ Based on this report, provide a brief assessment (4-6 bullet points) covering:
    - Note if tickets moved but weren't mentioned in standups
 3. Team performance patterns (who might be struggling, quality concerns, reopen patterns)
 4. One specific actionable recommendation for today
+5. If there is a message to 1 or more team members which might be helpful to progress or clarify things, please include a draft suggestion of this message for michael to easily copy and use if necessary.
+6. Make a note of the ammount of tickets in the ready for testing column.
 
 Be direct and specific. Reference ticket numbers and developer names.
 If you see a mismatch between stated work and actual progress, flag it clearly.
