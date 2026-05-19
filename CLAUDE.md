@@ -22,7 +22,7 @@ AI-powered team performance monitoring system for Michael Place (Delivery & Test
               ┌──────▼──────┐
               │ Raspberry Pi │  (greenhousepi.local)
               │ Claude Code  │
-              │ Cron @ 7AM   │
+              │ Cron @ 6AM   │
               └──────────────┘
 ```
 
@@ -50,8 +50,8 @@ To Do → Re-opened → In Progress → Ready for Deployment → Dev Checks → 
 - **Project**: `~/jira-dashboard`
 - **Virtual env**: `~/jira-dashboard/venv`
 - **Cron jobs**:
-  - Mon-Thu 7:00 AM: `scripts/pi_daily.sh`
-  - Friday 7:00 AM: `scripts/pi_weekly.sh`
+  - Mon-Thu 6:00 AM: `scripts/pi_daily.sh`
+  - Friday 6:00 AM: `scripts/pi_weekly.sh`
 - Scripts auto-pull from GitHub before each run
 
 ## Environment Variables (in .env)
