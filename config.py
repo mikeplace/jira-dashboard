@@ -2,7 +2,7 @@
 Configuration for Team Performance Dashboard
 
 Set these environment variables before running (or use .env file):
-- JIRA_URL: Your Jira Cloud instance (e.g., https://atlasergonomics.atlassian.net)
+- JIRA_URL: Your Jira Cloud instance (e.g., https://your-company.atlassian.net)
 - JIRA_EMAIL: Your Atlassian account email
 - JIRA_API_TOKEN: API token from https://id.atlassian.com/manage-profile/security/api-tokens
 - SLACK_WEBHOOK_URL: Incoming webhook URL for your private channel
@@ -23,10 +23,10 @@ if env_path.exists():
                 os.environ.setdefault(key.strip(), value.strip())
 
 # Jira Configuration
-JIRA_URL = os.getenv("JIRA_URL", "https://atlasergonomics.atlassian.net")
+JIRA_URL = os.getenv("JIRA_URL", "")  # e.g., https://your-company.atlassian.net
 JIRA_EMAIL = os.getenv("JIRA_EMAIL", "")
 JIRA_API_TOKEN = os.getenv("JIRA_API_TOKEN", "")
-JIRA_PROJECT_KEY = os.getenv("JIRA_PROJECT_KEY", "AEB")
+JIRA_PROJECT_KEY = os.getenv("JIRA_PROJECT_KEY", "")  # e.g., PROJ
 
 # Jira Workflow Statuses (in order)
 WORKFLOW_STATUSES = [
@@ -44,12 +44,10 @@ WORKFLOW_STATUSES = [
 REOPEN_STATUS = "Re-opened"
 
 # Team members (display name in Jira -> friendly name)
+# Update this to match your team's Jira display names
 TEAM_MEMBERS = {
-    "Deep": "Deep",
-    "Meet": "Meet",
-    "Devansh": "Devansh",
-    "Vipin": "Vipin",
-    "Mike Perry": "Mike Perry",
+    # "John Smith": "John",
+    # "Jane Doe": "Jane",
 }
 
 # Slack Configuration
@@ -60,13 +58,13 @@ SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL", "")
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN", "")
 SLACK_STANDUP_CHANNEL = os.getenv("SLACK_STANDUP_CHANNEL", "ongoing-sprint-work")
 SLACK_STANDUP_CHANNEL_ID = os.getenv("SLACK_STANDUP_CHANNEL_ID", "")  # Channel ID (starts with C)
-SLACK_VIPIN_CHANNEL_ID = os.getenv("SLACK_VIPIN_CHANNEL_ID", "")  # Vipin's update channel
+SLACK_VIPIN_CHANNEL_ID = os.getenv("SLACK_VIPIN_CHANNEL_ID", "")  # Secondary updates channel (optional)
 
 # GitHub Configuration (Optional - set GITHUB_ENABLED=true to enable)
 GITHUB_ENABLED = os.getenv("GITHUB_ENABLED", "false").lower() == "true"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
-GITHUB_ORG = os.getenv("GITHUB_ORG", "voidsstr")
-GITHUB_REPO = os.getenv("GITHUB_REPO", "AtlasErgoBackend")
+GITHUB_ORG = os.getenv("GITHUB_ORG", "")  # Your GitHub org or username
+GITHUB_REPO = os.getenv("GITHUB_REPO", "")  # Your repo name
 
 # Metrics Configuration
 STALE_THRESHOLD_DAYS = int(os.getenv("STALE_THRESHOLD_DAYS", "3"))

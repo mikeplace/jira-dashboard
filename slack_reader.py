@@ -19,7 +19,7 @@ class SlackReader:
         # Support multiple channels
         self.channel_ids = [
             config.SLACK_STANDUP_CHANNEL_ID,  # Main standup channel
-            config.SLACK_VIPIN_CHANNEL_ID,     # Vipin's channel
+            config.SLACK_VIPIN_CHANNEL_ID,    # Secondary updates channel (optional)
         ]
         # Filter out empty channel IDs
         self.channel_ids = [c for c in self.channel_ids if c]

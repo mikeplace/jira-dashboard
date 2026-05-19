@@ -355,8 +355,8 @@ def cmd_weekly_ai():
     print("\nAsking Claude for weekly analysis...")
     insights_file = "weekly_ai_insights.txt"
 
-    prompt = f"""You are an assistant helping Michael Place, the delivery and test lead, analyze his team's weekly performance.
-Note: Michael Place in the data is the lead himself - focus analysis on the developers (Deep, Meet, Devansh) and tester (Vipin).
+    prompt = f"""You are an assistant helping a delivery/test lead analyze their team's weekly performance.
+Focus analysis on the developers and testers in the team data (the lead may also appear in the data).
 
 Based on this weekly report, provide a comprehensive assessment (5-8 bullet points) covering:
 
@@ -456,8 +456,8 @@ def cmd_daily_ai():
     print("\nAsking Claude for analysis...")
     insights_file = "ai_insights.txt"
 
-    prompt = f"""You are an assistant helping Michael Place, the delivery and test lead, analyze his team's performance.
-Note: Michael Place in the data is the lead himself - focus analysis on the developers (Deep, Meet, Devansh) and tester (Vipin).
+    prompt = f"""You are an assistant helping a delivery/test lead analyze their team's performance.
+Focus analysis on the developers and testers in the team data (the lead may also appear in the data).
 
 Based on this report, provide a brief assessment (4-6 bullet points) covering:
 1. Risk flags or blockers needing immediate attention

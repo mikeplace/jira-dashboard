@@ -26,10 +26,11 @@ sudo apt install -y nodejs
 echo "[4/6] Installing Claude Code..."
 sudo npm install -g @anthropic-ai/claude-code
 
-# Clone the repo
+# Clone the repo (update URL to your fork)
 echo "[5/6] Cloning jira-dashboard repo..."
 cd ~
-git clone https://github.com/mikeplace/jira-dashboard.git
+# IMPORTANT: Update this URL to your own fork/repo
+git clone https://github.com/YOUR_USERNAME/jira-dashboard.git
 cd jira-dashboard
 
 # Install Python dependencies
